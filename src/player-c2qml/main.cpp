@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 #endif
 
     MainConfiguration    *MyMainConfiguration   = new MainConfiguration(
-                                                        new QSettings(QSettings::IniFormat, QSettings::UserScope, "SmilControl", "garlic-player"),
+                                                        new QSettings(QSettings::IniFormat, QSettings::UserScope, "SmilControl", "adflip-player"),
                                                         PlayerConfiguration::determineDefaultContentUrlName(),
                                                         PlayerConfiguration::determineDefaultContentUrl()
 

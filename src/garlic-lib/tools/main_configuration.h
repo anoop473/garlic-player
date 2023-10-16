@@ -114,7 +114,7 @@ protected:
         QString         time_zone = "";
         QString         cache_dir = "";
         QString         log_dir = "";
-        QString         app_name = "garlic-player";
+        QString         app_name = "adflip-player";
         QString         default_content_url_name = "";
         QString         default_content_url = "";
         QString         error_text = "";
