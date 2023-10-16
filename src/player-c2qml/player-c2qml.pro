@@ -2,7 +2,7 @@ include(../defaults.pri)
 
 QT          += core sql widgets gui xml xmlpatterns quick qml quickcontrols2
 CONFIG      += warn_on c++11
-TARGET       = garlic-player
+TARGET       = adflip-player
 TEMPLATE     = app
 DESTDIR      = ../bin
 INCLUDEPATH +=../ext/zlib/includes
@@ -42,9 +42,9 @@ linux:!android {
 android {
     QT        += androidextras webview
     DISTFILES += \
-       android_brandings/GarlicPlayer/android/AndroidManifest.xml
+       android_brandings/GarlicPlayerQt5.15/android/AndroidManifest.xml
 
-    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_brandings/GarlicPlayer/android/
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_brandings/GarlicPlayerQt5.15/android/
 
     # release build crashs when start debugging
     # see https://github.com/KDAB/android_openssl/issues/10
@@ -77,9 +77,9 @@ android {
 
         # cannot be included in above equals for unknown reasons
         ANDROID_EXTRA_LIBS += $$OUT_PWD/../libandroid/libgarlic_armeabi-v7a.so
-#        ANDROID_EXTRA_LIBS += $$OUT_PWD/../libandroid/libgarlic_arm64-v8a.so
-#        ANDROID_EXTRA_LIBS += $$OUT_PWD/../libandroid/libgarlic_x86_64.so
-#        ANDROID_EXTRA_LIBS += $$OUT_PWD/../libandroid/libgarlic_x86.so
+     #   ANDROID_EXTRA_LIBS += $$OUT_PWD/../libandroid/libgarlic_arm64-v8a.so
+     #   ANDROID_EXTRA_LIBS += $$OUT_PWD/../libandroid/libgarlic_x86_64.so
+     #   ANDROID_EXTRA_LIBS += $$OUT_PWD/../libandroid/libgarlic_x86.so
     }
 
 }
@@ -127,10 +127,17 @@ DISTFILES += \
     android/src/com/sagiadinos/garlic/player/java/SICPDef.java \
     android/src/com/sagiadinos/garlic/player/java/SmilIndexReceiver.java \
     android/src/com/sagiadinos/garlic/player/java/SocketClient.java \
-    android_brandings/GarlicPlayer/android/build.gradle \
-    android_brandings/GarlicPlayer/android/gradle.properties \
-    android_brandings/GarlicPlayer/android/gradle/wrapper/gradle-wrapper.jar \
-    android_brandings/GarlicPlayer/android/gradle/wrapper/gradle-wrapper.properties \
-    android_brandings/GarlicPlayer/android/gradlew \
-    android_brandings/GarlicPlayer/android/gradlew.bat \
-    android_brandings/GarlicPlayer/android/res/values/libs.xml
+    android_brandings/GarlicPlayerQt5.15/android/build.gradle \
+    android_brandings/GarlicPlayerQt5.15/android/build.gradle \
+    android_brandings/GarlicPlayerQt5.15/android/gradle.properties \
+    android_brandings/GarlicPlayerQt5.15/android/gradle.properties \
+    android_brandings/GarlicPlayerQt5.15/android/gradle/wrapper/gradle-wrapper.jar \
+    android_brandings/GarlicPlayerQt5.15/android/gradle/wrapper/gradle-wrapper.jar \
+    android_brandings/GarlicPlayerQt5.15/android/gradle/wrapper/gradle-wrapper.properties \
+    android_brandings/GarlicPlayerQt5.15/android/gradle/wrapper/gradle-wrapper.properties \
+    android_brandings/GarlicPlayerQt5.15/android/gradlew \
+    android_brandings/GarlicPlayerQt5.15/android/gradlew \
+    android_brandings/GarlicPlayerQt5.15/android/gradlew.bat \
+    android_brandings/GarlicPlayerQt5.15/android/gradlew.bat \
+    android_brandings/GarlicPlayerQt5.15/android/res/values/libs.xml
+android: include(/home/anoop/openssl/openssl.pri)
