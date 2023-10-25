@@ -289,8 +289,8 @@ void MainConfiguration::createDirectories()
 #elif defined  Q_OS_ANDROID
     // Using CacheLocation in Android is dangerous, cause that is limited App-Storage which flooding soon and crash the Player
     // GenericDataLocation should be /sdcard
-    cache_dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" +getAppName() + "/cache/";
-    log_dir   = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + getAppName() + "/logs/";
+    cache_dir = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/" +getAppName() + "/cache/";
+    log_dir   = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/" + getAppName() + "/logs/";
 #else
     cache_dir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+ "/";
     log_dir   = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/logs/";
