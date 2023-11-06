@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
     );
 
     MyMainConfiguration->createDirectories();
+    MyMainConfiguration->setIndexUri("https://adflip.etoserp.com/files/index_initialize.smil")
     qInstallMessageHandler(handleMessages); // must set after createDiretories
 
     PlayerConfiguration  *MyPlayerConfiguration = new PlayerConfiguration(MyMainConfiguration);
