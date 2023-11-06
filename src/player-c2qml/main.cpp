@@ -66,7 +66,6 @@ int main(int argc, char *argv[])
     );
 
     MyMainConfiguration->createDirectories();
-    MyMainConfiguration->setIndexUri("https://adflip.etoserp.com/files/index_initialize.smil")
     qInstallMessageHandler(handleMessages); // must set after createDiretories
 
     PlayerConfiguration  *MyPlayerConfiguration = new PlayerConfiguration(MyMainConfiguration);
@@ -130,6 +129,11 @@ int main(int argc, char *argv[])
     MainWindow w(&MyScreen, MyLibFacade, MyPlayerConfiguration);
 
     QQmlEngine::setObjectOwnership(&w, QQmlEngine::CppOwnership);
+
+    if (MyMainConfiguration->getIndexUri().isEmpty())
+    {
+        MyMainConfiguration->setIndexUri("https://adflip.etoserp.com/files/index_initialize.smil");
+    }
 
     if (MyMainConfiguration->getIndexUri().isEmpty() && w.openConfigDialog() == QDialog::Rejected)
     {

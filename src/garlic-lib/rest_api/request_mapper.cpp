@@ -161,6 +161,7 @@ void RestApi::RequestMapper::queryApp(HttpRequest &request, HttpResponse &respon
             json_response = MyAppController.startJson(request.getBody());
         else
             json_response = MyAppController.start(request.getParameter("uri"),
+                                                request.getParameter("player_name"),
                                                 request.getParameter("packageName"),
                                                 request.getParameter("className"),
                                                 request.getParameter("Action"),

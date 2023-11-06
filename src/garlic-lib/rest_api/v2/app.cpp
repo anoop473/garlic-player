@@ -11,6 +11,7 @@ QString RestApi::V2::App::startJson(QString json_string)
         return respondJSONError("No JSON found");
 
     return start(JsonRequest.getStringValueByKey("uri"),
+                 JsonRequest.getStringValueByKey("player_name"),
                  JsonRequest.getStringValueByKey("packageName"),
                  JsonRequest.getStringValueByKey("className"),
                  JsonRequest.getStringValueByKey("Action"),
@@ -29,7 +30,6 @@ QString RestApi::V2::App::start(QString uri, QString player_name, QString packag
     {
         MyLibfacade->getConfiguration()->setPlayerName(player_name);
     }
-
     MyLibfacade->initParser();
 
     JsonResponse.reset();
