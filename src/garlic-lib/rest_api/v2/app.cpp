@@ -18,13 +18,18 @@ QString RestApi::V2::App::startJson(QString json_string)
                 );
 }
 
-QString RestApi::V2::App::start(QString uri, QString package_name, QString class_name, QString action, QString type)
+QString RestApi::V2::App::start(QString uri, QString player_name, QString package_name, QString class_name, QString action, QString type)
 {
     Q_UNUSED(action);Q_UNUSED(type);
     if (!MyLibfacade->getConfiguration()->validateContentUrl(uri))
         return respondJSONError(MyLibfacade->getConfiguration()->getErrorText());
 
     MyLibfacade->getConfiguration()->determineIndexUri(uri);
+    if (!player_name.isEmpty())
+    {
+        MyLibfacade->getConfiguration()->setPlayerName(player_name);
+    }
+
     MyLibfacade->initParser();
 
     JsonResponse.reset();
