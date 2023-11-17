@@ -108,10 +108,10 @@ void HeadParser::parseMeta(QDomElement element)
     else if (element.hasAttribute("http-equiv") && element.attribute("http-equiv") == "Refresh" && element.hasAttribute("content"))
     {
         refresh = element.attribute("content").toInt();
-        #ifdef QT_NO_DEBUG
-            if (refresh < 61) // make sure that impaciently  user do not hammering CMS or Server
-                refresh = 60;
-        #endif
+//        #ifdef QT_NO_DEBUG
+//            if (refresh < 61) // make sure that impaciently  user do not hammering CMS or Server
+//                refresh = 60;
+//        #endif
     }
 }
 
