@@ -27,3 +27,11 @@ QString RestApi::V2::SystemInfo::responseModelInfo()
     JsonResponse.insertStringValuePair("options", "");
     return JsonResponse.asString(false).toUtf8();
 }
+
+QString RestApi::V2::SystemInfo::responseTimerOffset(QString offset)
+{
+    MyLibfacade->getConfiguration()->setTimerOffset(offset.toInt());
+    JsonResponse.reset();
+    JsonResponse.insertIntegerValuePair("Offset", MyLibfacade->getConfiguration()->getTimerOffset());
+    return JsonResponse.asString(false).toUtf8();
+}

@@ -77,6 +77,11 @@ void RestApi::RequestMapper::querySystem(HttpRequest& request, HttpResponse &res
         QString res = MySIController.responseModelInfo();
         respond(response, res);
     }
+    else if (path.at(3) ==  "timerOffset")
+    {
+        QString res = MySIController.responseTimerOffset(path.at(4));
+        respond(response, res);
+    }
     else
         responseNotFound(response);
 }

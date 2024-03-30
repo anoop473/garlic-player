@@ -23,7 +23,7 @@ BaseMedia::BaseMedia(Files::MediaManager *mm, MainConfiguration *config, SmilHea
     MyMainConfiguration = config;
     MyMediaManager      = mm;
     MyPlaceHolder       = ph;
-
+    MyConfig = config;
 }
 
 void BaseMedia::setRegion(Region r)

@@ -515,7 +515,7 @@ void BaseTimings::setRepeatCount(QString rC)
 
 void BaseTimings::handleBeginTimer()
 {
-    BeginTimer = new Timings::BeginTimer(this);
+    BeginTimer = new Timings::BeginTimer(this, MyConfig);
     QString begin_value = "";
 
     if (parent()->objectName() == "TExcl")
@@ -528,7 +528,7 @@ void BaseTimings::handleBeginTimer()
     if (!BeginTimer->parse(begin_value, parent()->objectName()))
     {
         delete BeginTimer;
-        BeginTimer = new Timings::BeginTimer(this);
+        BeginTimer = new Timings::BeginTimer(this, MyConfig);
         if (parent()->objectName() == "TExcl")
             BeginTimer->parse("indefinite", "");
         else

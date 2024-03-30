@@ -98,6 +98,8 @@ class MainConfiguration  : public QObject
         void            createDirectories();
         void            determineUserAgent();
         bool            validateContentUrl(QString url_string);
+        void            setTimerOffset(const int &value);
+        int             getTimerOffset();
 
 protected:
         QSettings      *UserConfig;
@@ -121,6 +123,7 @@ protected:
         void            createDirectoryIfNotExist(QString path);
         void            determineIndexPath();
         void            determineOS();
+        int             timerOffset = 0;
 };
 
 #endif // CONFIGURATION_H

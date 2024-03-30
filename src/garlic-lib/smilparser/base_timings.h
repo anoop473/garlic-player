@@ -51,6 +51,7 @@ class BaseTimings : public TBase
         const     int        _active   = 2;
         const     int        _paused   = 3;
         const     int        _defered  = 4;
+        MainConfiguration *MyConfig = Q_NULLPTR;
 
         explicit               BaseTimings(QObject * parent);
                               ~BaseTimings();

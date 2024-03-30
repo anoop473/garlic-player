@@ -60,6 +60,7 @@ namespace Timings
             bool        isActiveTimerTrigger();
             bool        hasExternalTrigger();
             QHash<QString, QString> fetchTriggerList();
+            MainConfiguration *MyConfig =   Q_NULLPTR;
         protected:
             struct TriggerStruct
             {

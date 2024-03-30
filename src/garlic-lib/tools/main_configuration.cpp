@@ -57,6 +57,16 @@ void MainConfiguration::setUuid(const QString &value)
     setUserConfigByKey("uuid", value);
 }
 
+void MainConfiguration::setTimerOffset(const int &value)
+{
+    timerOffset = value;
+}
+
+int MainConfiguration::getTimerOffset()
+{
+    return timerOffset;
+}
+
 QString MainConfiguration::getLogDir()
 {
     return MainConfiguration::log_directory;

@@ -1,8 +1,9 @@
 #include "begin_timer.h"
 
-Timings::BeginTimer::BeginTimer(QObject *parent) : Timings::EnhancedTimer(parent)
+Timings::BeginTimer::BeginTimer(QObject *parent, MainConfiguration *cg) : Timings::EnhancedTimer(parent)
 {
     attribute = "begin";
+    MyConfig = cg;
 }
 
 qint64 Timings::BeginTimer::getElapsedButActiveTimeTrigger()

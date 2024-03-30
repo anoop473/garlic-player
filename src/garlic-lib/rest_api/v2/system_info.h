@@ -15,6 +15,7 @@ namespace RestApi
                 explicit SystemInfo(QObject *parent = nullptr);
                 QString responseFirmwareInfo();
                 QString responseModelInfo();
+                QString responseTimerOffset(QString offset);
         };
     }
 }

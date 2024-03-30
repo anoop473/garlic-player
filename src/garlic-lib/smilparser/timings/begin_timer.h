@@ -10,7 +10,7 @@ namespace Timings
     {
             Q_OBJECT
         public:
-            BeginTimer(QObject *parent = nullptr);
+            BeginTimer(QObject *parent = nullptr, MainConfiguration *cg = Q_NULLPTR);
             qint64 getElapsedButActiveTimeTrigger();
             void   setDurTimer(SimpleTimer *dur);
             void   setEndTimer(Timings::EndTimer *end);

@@ -531,6 +531,7 @@ void Timings::EnhancedTimer::calculatePositiveTrigger(qint64 positive_time)
 
 void Timings::EnhancedTimer::emitTimeout()
 {
+    qDebug() << "### Timer Ticked " << QDateTime::currentDateTime();
     determineNextTrigger();
     emit timeout();
 }
@@ -547,6 +548,10 @@ void Timings::EnhancedTimer::determineNextTrigger()
             QDateTime dt = QDateTime::currentDateTime();
             ts->MyWallClock->calculateNextTrigger(dt);
             qint64 next_trigger     = ts->MyWallClock->getNextTimerTrigger();
+            qDebug() << "### Actual Next Tick " << next_trigger;
+            if (MyConfig)
+                    next_trigger = next_trigger + MyConfig->getTimerOffset();
+            qDebug() << "### Adjusted Next Tick" << next_trigger;
             if (next_trigger > 0) // not sure if this has sie effects, but it prevents an endless loop when next_trigger ==  0
                 ts->MyTimer->start(next_trigger);
         }
