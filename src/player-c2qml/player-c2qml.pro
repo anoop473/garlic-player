@@ -140,4 +140,3 @@ DISTFILES += \
     android_brandings/GarlicPlayerQt5.15/android/gradlew.bat \
     android_brandings/GarlicPlayerQt5.15/android/gradlew.bat \
     android_brandings/GarlicPlayerQt5.15/android/res/values/libs.xml
-android: include(/home/anoop/openssl/openssl.pri)
