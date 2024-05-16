@@ -254,7 +254,8 @@ void Downloader::handleNetworkError(QNetworkReply *reply)
              << "transferLength" << QString::number(determineBytesTransfered())
              << "lastCachedLength" << QString::number(local_file_info.size())
              << "lastCachedModifiedTime" << local_file_info.lastModified().toString(Qt::ISODate);
-        qWarning(ContentManager) << Logger::getInstance().createEventLogMetaData("FETCH_FAILED",list);
+        qDebug() << Logger::getInstance().createEventLogMetaData("FETCH_FAILED",list);
+        emit notmodified(this);
     }
     else
     {
