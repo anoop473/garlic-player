@@ -546,12 +546,15 @@ void Timings::EnhancedTimer::determineNextTrigger()
         if (ts->type == TYPE_WALLCLOCK && ts->MyTimer != Q_NULLPTR && !ts->MyTimer->isActive())
         {
             QDateTime dt = QDateTime::currentDateTime();
+            qDebug() << "### Actual Date " << dt;
+            if (MyConfig)
+            {
+                dt = dt.addMSecs(MyConfig->getTimerOffset());
+                qDebug() << "### Adjusted Date " << dt;
+            }
             ts->MyWallClock->calculateNextTrigger(dt);
             qint64 next_trigger     = ts->MyWallClock->getNextTimerTrigger();
             qDebug() << "### Actual Next Tick " << next_trigger;
-            if (MyConfig)
-                    next_trigger = next_trigger + MyConfig->getTimerOffset();
-            qDebug() << "### Adjusted Next Tick" << next_trigger;
             if (next_trigger > 0) // not sure if this has sie effects, but it prevents an endless loop when next_trigger ==  0
                 ts->MyTimer->start(next_trigger);
         }

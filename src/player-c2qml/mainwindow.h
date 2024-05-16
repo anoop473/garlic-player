@@ -31,6 +31,7 @@
 #include "files/index_manager.h"
 #include "files/media_manager.h"
 #include "lib_facade.h"
+#include "QUdpSocket"
 
 class MainWindow : public QQuickView
 {
@@ -67,6 +68,7 @@ class MainWindow : public QQuickView
 
         void                      sendClosePlayerCorrect();
         void                      quitApplication();
+        QUdpSocket                *udpSocket = Q_NULLPTR;
     protected slots:
         void                      prepareParsing();
         void                      startShowMedia(BaseMedia *media);
@@ -78,6 +80,7 @@ class MainWindow : public QQuickView
         void                      takeScreenshot(QString file_path);
         void                      rebootOS(QString task_id);
         void                      installSoftware(QString file_path);
+        void                      udpReceive();
 };
 
 #endif // MAINWINDOW_H

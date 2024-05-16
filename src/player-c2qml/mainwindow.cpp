@@ -49,7 +49,12 @@ void MainWindow::init()
 
     setSource(QUrl(QStringLiteral("qrc:/root_qtm.qml")));
     setMainWindowSize(QSize(980, 540)); // set default
+
     MyRegionsList->installEventFilter(this);
+
+    udpSocket = new QUdpSocket(this);
+    udpSocket->bind(45454, QUdpSocket::ShareAddress);
+    connect(udpSocket, &QUdpSocket::readyRead, this, &MainWindow::udpReceive);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *ke)
@@ -286,4 +291,20 @@ void MainWindow::quitApplication()
     MyLibFacade->shutDownParsing();
     sendClosePlayerCorrect();
     QApplication::quit();
+}
+
+void MainWindow::udpReceive()
+{
+    qDebug() << "### UDP Received";
+    QByteArray datagram;
+    while (udpSocket->hasPendingDatagrams()) {
+            qDebug() << "### Begin Read";
+            datagram.resize(int(udpSocket->pendingDatagramSize()));
+            udpSocket->readDatagram(datagram.data(), datagram.size());
+            datagram.chop(2);
+            qDebug() << "### Raw Data: " << datagram; // Dateformat in elapsed millis "$ date +"%s%3N"
+            qint64 diffms = datagram.toLongLong() - QDateTime::currentMSecsSinceEpoch();
+            qDebug() << "### Difference Date: " << diffms;
+            MyLibFacade->getConfiguration()->setTimerOffset(diffms);
+    }
 }
