@@ -73,29 +73,29 @@ int main(int argc, char *argv[])
     LibFacade  *MyLibFacade = new LibFacade();
 
 #if defined Q_OS_ANDROID
-    // if (MyAndroidManager->hasLauncher())
-    // {
-    //     MyAndroidManager->fetchDeviceInformation();
-    //     // needed for launcher stuff to init or fetch
-    //     QTime dieTime= QTime::currentTime().addSecs(5);
-    //     while (MyAndroidManager->getUUIDFromLauncher().isEmpty() && QTime::currentTime() < dieTime)
-    //     {
-    //         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-    //     }
-    //     MyLibFacade->toggleLauncher(MyAndroidManager->hasLauncher());
-    //     MyPlayerConfiguration->setHasLauncher(MyAndroidManager->hasLauncher());
+     if (MyAndroidManager->hasLauncher())
+     {
+         MyAndroidManager->fetchDeviceInformation();
+         // needed for launcher stuff to init or fetch
+         QTime dieTime= QTime::currentTime().addSecs(5);
+         while (MyAndroidManager->getUUIDFromLauncher().isEmpty() && QTime::currentTime() < dieTime)
+         {
+             QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+         }
+         MyLibFacade->toggleLauncher(MyAndroidManager->hasLauncher());
+         MyPlayerConfiguration->setHasLauncher(MyAndroidManager->hasLauncher());
 
-    //     MyPlayerConfiguration->setUuidFromLauncher(MyAndroidManager->getUUIDFromLauncher());
+//         MyPlayerConfiguration->setUuidFromLauncher(MyAndroidManager->getUUIDFromLauncher());
 
-    //     MyPlayerConfiguration->setSmilIndexUriFromLauncher(MyAndroidManager->getSmilIndexFromLauncher());
+//         MyPlayerConfiguration->setSmilIndexUriFromLauncher(MyAndroidManager->getSmilIndexFromLauncher());
 
-    //     dieTime = QTime::currentTime().addSecs(5);
-    //     while (MyAndroidManager->getLauncherVersion().isEmpty() && QTime::currentTime() < dieTime)
-    //     {
-    //         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-    //     }
-    //     MyPlayerConfiguration->setVersionFromLauncher(MyAndroidManager->getLauncherVersion());
-    // }
+         dieTime = QTime::currentTime().addSecs(5);
+         while (MyAndroidManager->getLauncherVersion().isEmpty() && QTime::currentTime() < dieTime)
+         {
+             QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+         }
+         MyPlayerConfiguration->setVersionFromLauncher(MyAndroidManager->getLauncherVersion());
+     }
 
     setGlobalLibFaceForJava(MyLibFacade);
 #endif
@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
 
     if (MyMainConfiguration->getIndexUri().isEmpty())
     {
-        MyMainConfiguration->setIndexUri("https://adflip.etoserp.com/files/index_initialize.smil");
+        MyMainConfiguration->setIndexUri("https://rotanasn.etoserp.com/files/index_initialize.smil");
     }
 
     if (MyMainConfiguration->getIndexUri().isEmpty() && w.openConfigDialog() == QDialog::Rejected)

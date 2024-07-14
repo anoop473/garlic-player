@@ -312,7 +312,7 @@ void MainConfiguration::createDirectories()
 
 void MainConfiguration::determineUserAgent()
 {
-    user_agent = "GAPI/1.0 (UUID:"+getUuid()+"; NAME:"+getPlayerName()+") garlic-"+getOS()+"/"+getVersion()+" (MODEL:Garlic)";
+    user_agent = "GAPI| (NAME:"+getPlayerName()+") |OS:"+getOS()+"|VER:"+getVersion()+"|";
 }
 
 void MainConfiguration::createDirectoryIfNotExist(QString path)

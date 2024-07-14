@@ -82,7 +82,7 @@ void AndroidManager::sendCloseCorrect()
 QString AndroidManager::getLauncherVersion()
 {
     QAndroidJniObject s = MyActivity.callObjectMethod<jstring>("getLauncherVersion");
-    return launcher_name+"-"+s.toString();
+    return s.toString();
 }
 
 QString AndroidManager::getLauncherName()

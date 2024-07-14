@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sagiadinos.garlic.player" android:versionName="v0.7.0.101" android:versionCode="100" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sagiadinos.garlic.player" android:versionName="v7.0.902" android:versionCode="901" android:installLocation="auto">
   <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
          Remove the comment if you do not require these default permissions. -->
   <!-- %%INSERT_PERMISSIONS -->
@@ -8,7 +8,7 @@
   <!-- %%INSERT_FEATURES -->
   <supports-screens android:usesCleartextTraffic="true" android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
   <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="adflip-player" android:extractNativeLibs="true" android:icon="@drawable/icon">
-    <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density" android:name="com.sagiadinos.garlic.player.java.GarlicActivity" android:label="-- %%INSERT_APP_NAME%% --" android:screenOrientation="unspecified" android:launchMode="singleTop">
+        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density" android:name="com.sagiadinos.garlic.player.java.GarlicActivity" android:label="-- %%INSERT_APP_NAME%% --" android:screenOrientation="unspecified" android:launchMode="singleTop">
             <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
@@ -67,10 +67,10 @@
             <meta-data android:name="android.app.extract_android_style" android:value="full"/>
             <!-- extract android style -->
         </activity>
-    <receiver android:name="com.sagiadinos.garlic.player.java.SmilIndexReceiver" android:enabled="true"/>
-    <receiver android:name="com.sagiadinos.garlic.player.java.ConfigReceiver" android:enabled="true"/>
-    <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
-  </application>
+        <receiver android:name="com.sagiadinos.garlic.player.java.SmilIndexReceiver" android:enabled="true"/>
+        <receiver android:name="com.sagiadinos.garlic.player.java.ConfigReceiver" android:enabled="true"/>
+        <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
+    </application>
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29"/>
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.WAKE_LOCK"/>
